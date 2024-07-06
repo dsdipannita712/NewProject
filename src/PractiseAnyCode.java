@@ -1,18 +1,25 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
-public final class PractiseAnyCode {
-    final String name;
-
-    public PractiseAnyCode(String name) {
-        this.name = name;
+public class PractiseAnyCode {
+    public List<List<String>> getGroupAnargram(String[] s)
+    {
+        return new ArrayList<>(Arrays.stream(s).sorted().collect(Collectors.groupingBy(this::sortString)).values());
     }
 
-    public String getName() {
-        return name;
+    public String sortString(String sp)
+    {
+        char[] ch = sp.toCharArray();
+        Arrays.sort(ch);
+        return String.valueOf(ch);
     }
-
     public static void main(String[] args) {
-        PractiseAnyCode p = new PractiseAnyCode("Dipannita");
-        System.out.println(p.getName());
+        String[] str = {"bat","abt","tab","eat","tea","cat"};
+        PractiseAnyCode cp = new PractiseAnyCode();
+        List<List<String>> list = cp.getGroupAnargram(str);
+        System.out.println(list);
     }
 }
 

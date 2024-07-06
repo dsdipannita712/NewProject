@@ -21,7 +21,7 @@ public class LeetcodeEx1Sum {
     }
 
     public static void main(String[] args) {
-        int[] s = {3, 2,3};
+        int[] s = {3, 2,4};
         int target = 6;
         int[] c = getIndexOfSum(s, target);
         List< Integer > in = new ArrayList<>();

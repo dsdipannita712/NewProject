@@ -21,8 +21,8 @@ public class LeetCodeSum {
     }
     public static void main(String[] args)
         {
-            int[] a = {3, 9,3,8,3};
-            int target = 12;
+            int[] a = {3, 2,4};
+            int target = 6;
             LeetCodeSum lp = new LeetCodeSum();
             int[] lst = lp.getIndexOfSum(a, target);
             List< Integer > lsst = new ArrayList<>();
