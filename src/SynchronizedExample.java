@@ -29,7 +29,7 @@ public class SynchronizedExample {
         try {
             t1.join();
             t2.join();
-        } catch (Exception e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println("count :" + count);
