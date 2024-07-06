@@ -27,7 +27,7 @@ public class SynchronizedExample {
         t2.start();
 
         try {
-            t1.join();
+            t1.join();// wait for this thread to die
             t2.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
