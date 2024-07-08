@@ -1,25 +1,25 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.PriorityQueue;
 
 public class PractiseAnyCode {
-    public List<List<String>> getGroupAnargram(String[] s)
-    {
-        return new ArrayList<>(Arrays.stream(s).sorted().collect(Collectors.groupingBy(this::sortString)).values());
+    public static Integer getKthSmallest(int[][] m, int n) {
+        PriorityQueue< Integer > pq = new PriorityQueue< Integer >((m1, m2) -> (m2 - m1));
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m.length; j++) {
+                pq.add(m[i][j]);
+                if (pq.size() > n) {
+                    pq.poll();
+                }
+            }
+        }
+
+        return pq.poll();
     }
 
-    public String sortString(String sp)
-    {
-        char[] ch = sp.toCharArray();
-        Arrays.sort(ch);
-        return String.valueOf(ch);
-    }
     public static void main(String[] args) {
-        String[] str = {"bat","abt","tab","eat","tea","cat"};
-        PractiseAnyCode cp = new PractiseAnyCode();
-        List<List<String>> list = cp.getGroupAnargram(str);
-        System.out.println(list);
+        int[][] matrix = {{1, 4, 5}, {8, 13, 2}, {9, 3, 6}}; // 1,2,3,4,5,6,8,9,13
+        int k = 4;
+        System.out.println(getKthSmallest(matrix, k));
+
     }
 }
 
